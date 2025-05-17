@@ -9,17 +9,21 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 # Cargar imagen a comparar
-hola = input("NAme: ")
-img_new = Image.open(hola)
-inputs_new = processor(images=img_new, return_tensors="pt")
-embedding_new = model.get_image_features(**inputs_new)[0].detach().numpy()
+path = os.path.join(os.path.dirname(os.getcwd()), "Data/testing")
+print("Ruta de imágenes:", path)
+images = [f for f in os.listdir(path) if f.lower().endswith((".png"))]
 
-# Conectar a la base de datos y obtener embeddings guardados
-conn = sqlite3.connect("embeddings.db")
-c = conn.cursor()
-c.execute("SELECT label, vector FROM embeddings")
-results = c.fetchall()
-conn.close()
+for i in images:
+    img_new = Image.open(i)
+    inputs_new = processor(images=img_new, return_tensors="pt")
+    embedding_new = model.get_image_features(**inputs_new)[0].detach().numpy()
+    
+    # Conectar a la base de datos y obtener embeddings guardados
+    conn = sqlite3.connect("embeddings.db")
+    c = conn.cursor()
+    c.execute("SELECT label, vector FROM embeddings")
+    results = c.fetchall()
+    conn.close()
 
 # Función para similitud coseno
 def cosine_sim(a, b):
