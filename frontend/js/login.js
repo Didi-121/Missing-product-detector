@@ -11,9 +11,9 @@ function login() {
     var password = document.getElementById("password").value;
 
     if (user === admin_user && password === admin_password) {
-        window.location.href = "admin.html";
+        window.location.href = "frontend/html/admin.html";
     } else if (user === common_user && password === common_password) {
-        window.location.href = "common.html";
+        window.location.href = "frontend/html/common.html";
     } else {
         alert("Invalid username or password");
     }
