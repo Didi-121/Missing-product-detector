@@ -12,17 +12,17 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 # Cargar imagen a comparar
-path = os.path.join(os.path.dirname(os.getcwd()), "Data/testing")
+path = os.path.join(os.path.dirname(os.getcwd()), "NN/test2")
+
 print("Ruta de imágenes:", path)
 images = [f for f in os.listdir(path) if f.lower().endswith((".png"))]
 
 anss = []
 
+sum = 0
 for i in images:
-    ventana = tk.Tk()
-    ventana.title("cine")
-
-    img_new = Image.open(i)
+    print(i)
+    img_new = Image.open(path +"/"+ i)
     inputs_new = processor(images=img_new, return_tensors="pt")
     embedding_new = model.get_image_features(**inputs_new)[0].detach().numpy()
     
@@ -54,19 +54,16 @@ for i in images:
             best_label = label
 
     print(f"Categoría más similar: {best_label} ({best_score*100:.2f}%)")
+    print("Label: " + i)
+    print("Label comparado: " + best_label)
 
-    #mostrar la imagen y el porcentaje
-    imagen1_tk = ImageTk.PhotoImage(img_new)
-    imagen2_tk = ImageTk.PhotoImage(Image.open(os.path.join(path, best_label + ".png")))
-
-    label1 = tk.Label(ventana, image=imagen1_tk)
-    label1.pack(side="left")
-    label2 = tk.Label(ventana, image=imagen2_tk)
-    label2.pack(side="right")
 
     #pedir input de verificacion, 0 ,1,2 (nqada, similar, igual)
     ans = input("similitud (0,1,2) ")
-    #cerrar ventana
-    ventana.destroy()
+    if (ans == 2):
+        sum += 1
     #guardar en una lista
-    anss = anss.append(ans)
+    anss.append(ans)
+
+print(ans)
+print(sum/len(images)-7)

@@ -12,7 +12,7 @@ processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 conn = sqlite3.connect("embeddings.db")
 c = conn.cursor()
 
-path = os.path.join(os.path.dirname(os.getcwd()), "Data/chopped_products")
+path = os.path.join(os.path.dirname(os.getcwd()), "Data/chopped_products2")
 print("Ruta de imágenes:", path)
 
 images = [f for f in os.listdir(path) if f.lower().endswith((".png"))]
