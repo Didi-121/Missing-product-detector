@@ -1,3 +1,19 @@
+@font-face {
+    font-family: 'Nunito Regular';
+    src: url(../assets/fonts/Nunito-Regular.ttf) format('truetype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito Regular';
+  background-color: #E9E9E9!important;
+}
+
+body * {
+  font-family: 'Nunito Regular';
+}
+
 .text-left {
   text-align: left;
 }
@@ -15,4 +31,34 @@
 }
 .text-end {
   text-align: end;
+}
+
+header {
+  background-color: #BB2C2C;
+  color: #F8F8F8;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+header img{
+  width: 7rem;
+  height: auto;
+  object-fit: contain;
+  margin-right: 1rem;
+}
+
+header span{
+  font-size: 3rem!important;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+header h2{
+    font-family: 'Nunito Regular';
+    font-weight: lighter;
+    align-items: center;
+    display: flex;
+    padding-top: 0.5rem;
+    cursor: pointer;
 }
