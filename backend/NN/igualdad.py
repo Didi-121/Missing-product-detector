@@ -2,25 +2,34 @@ import numpy as np
 import sqlite3
 import torch
 from PIL import Image
+from transformers import CLIPProcessor, CLIPModel
 
-# Nueva imagen
-img_new = Image.open("test1a.jpg")
+# Cargar modelo y processor de CLIP
+model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
+processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
+
+# Cargar imagen a comparar
+img_new = Image.open("aceite.jpeg")
 inputs_new = processor(images=img_new, return_tensors="pt")
-embedding_new = model.get_image_features(**inputs_new)[0]
+embedding_new = model.get_image_features(**inputs_new)[0].detach().numpy()
 
-# Obtener todos los vectores de la base
+# Conectar a la base de datos y obtener embeddings guardados
 conn = sqlite3.connect("embeddings.db")
 c = conn.cursor()
 c.execute("SELECT label, vector FROM embeddings")
 results = c.fetchall()
 conn.close()
 
-# Comparar usando similitud coseno
+# Función para similitud coseno
 def cosine_sim(a, b):
-    a = torch.tensor(a)
-    b = torch.tensor(b)
+    if not isinstance(a, torch.Tensor):
+        a = torch.tensor(a)
+    if not isinstance(b, torch.Tensor):
+        b = torch.tensor(b)
     return torch.nn.functional.cosine_similarity(a, b, dim=0).item()
 
+
+# Comparar con cada embedding en la base de datos
 best_label = None
 best_score = -1
 
@@ -32,4 +41,3 @@ for label, vec_blob in results:
         best_label = label
 
 print(f"Categoría más similar: {best_label} ({best_score*100:.2f}%)")
-

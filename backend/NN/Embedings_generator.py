@@ -8,7 +8,7 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 # Imagen base
-img = Image.open("test1.png")
+img = Image.open("test2.png")
 inputs = processor(images=img, return_tensors="pt")
 embedding = model.get_image_features(**inputs)[0]  # [512] vector
 
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS embeddings (
 
 # Guardar embedding
 c.execute("INSERT INTO embeddings (label, vector) VALUES (?, ?)",
-          ("cat", embedding.detach().numpy().tobytes()))
+          ("aceite nutri", embedding.detach().numpy().tobytes()))
 conn.commit()
 conn.close()
 
