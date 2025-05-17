@@ -9,7 +9,8 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 # Cargar imagen a comparar
-img_new = Image.open("aceite.jpeg")
+hola = input("NAme: ")
+img_new = Image.open(hola)
 inputs_new = processor(images=img_new, return_tensors="pt")
 embedding_new = model.get_image_features(**inputs_new)[0].detach().numpy()
 
