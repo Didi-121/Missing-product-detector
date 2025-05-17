@@ -1,0 +1,25 @@
+
+.topbar {
+  background-color: #BB2C2C;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oxxo-logo {
+  width: 80px;
+  height: auto;
+}
+
+.user-info {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+}
