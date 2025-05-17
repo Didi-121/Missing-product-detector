@@ -13,7 +13,7 @@ function login() {
     if (user === admin_user && password === admin_password) {
         window.location.href = "frontend/html/admin.html";
     } else if (user === common_user && password === common_password) {
-        window.location.href = "frontend/html/common.html";
+        window.location.href = "frontend/html/usuario.html";
     } else {
         alert("Invalid username or password");
     }
