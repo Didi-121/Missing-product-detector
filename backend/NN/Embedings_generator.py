@@ -2,13 +2,13 @@ import sqlite3
 import torch
 from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
-
+print("flag1")
 # Preparar modelo
 model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 
 # Imagen base
-img = Image.open("cat.jpg")
+img = Image.open("test1.png")
 inputs = processor(images=img, return_tensors="pt")
 embedding = model.get_image_features(**inputs)[0]  # [512] vector
 

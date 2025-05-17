@@ -4,7 +4,7 @@ import torch
 from PIL import Image
 
 # Nueva imagen
-img_new = Image.open("unknown.jpg")
+img_new = Image.open("test1a.jpg")
 inputs_new = processor(images=img_new, return_tensors="pt")
 embedding_new = model.get_image_features(**inputs_new)[0]
 
