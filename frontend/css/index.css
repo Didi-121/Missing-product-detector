@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Nunito Bold';
+    src: url(../assets/fonts/Nunito-Bold.ttf) format('truetype');
+}
+
+body{
+    display: flex;
+    color: white;
+    font-family: 'Nunito Bold';
+    height: 100lvh;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  background-color: #BB2C2C;
+  border-radius: 0.3rem;
+  min-width: 80lvw;
+  padding: 2rem;
+}
+
+.oxxo-logo {
+  width: 5lvw;
+  height: auto;
+}
+
+.input-field {
+  width: 50lvw;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: none;
+  height: 5lvh;
+  border-radius: 0.3rem;
+  font-size: large;
+  background-color: #FFD2D2;
+  font-optical-sizing: auto;
+}
+
+h2 {
+    color: #F8F8F8;
+    font-optical-sizing: auto;
+}
