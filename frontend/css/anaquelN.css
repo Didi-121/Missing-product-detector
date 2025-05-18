@@ -128,10 +128,9 @@ body {
 /* Información a la derecha */
 .anaquel-info {
   flex: 1;
-  background-color: white;
+  background-color: #E9E9E9;
   border-radius: 0.5rem;
   padding: 4rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -142,12 +141,12 @@ body {
 
 .anaquel-info p {
   font-size: 1.2rem;
-  color: #333;
+  color: #4B5563;
 }
 
 .anaquel-info button {
   background-color: white;
-  border: 6px solid gray;
+  border: 5px dotted  #4B5563;
   border-radius: 12px; 
   padding: 0.25rem 0rem;
   cursor: pointer;
@@ -163,20 +162,24 @@ body {
 .right-content {
   flex: 1; 
   text-align: center; 
-  color:gray;
+  color:#4B5563;
   font-size: 4rem;
 }
 .right-content2 {
   flex: 1; 
   text-align: center; 
   font-size: 1.3rem;
+  background-color: #3F52BE;  /* azul bootstrap */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.4rem;
 }
 
 
 
-.anaquel-info .boton_informativo{  
-    border: 0px;  
-  background-color: #007bff;  /* azul bootstrap */
+.anaquel-info .boton_informativo{ 
+  background-color: #3F52BE;  /* azul bootstrap */
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -189,4 +192,43 @@ body {
 font-weight: bold;
 width: auto;
 margin-left: auto;
+}
+
+.anaquel-bar {
+    
+  position: relative;  
+    width: 100%;
+    height: 400px;
+  background-color: white;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);     
+  border-radius: 0.5rem;
+  display: flex;  
+  justify-content: center;
+  align-items: center;   
+  gap: 0.5rem; 
+  justify-content: center; 
+}
+
+.anaquel-bar .boton_informativo {
+  position: absolute;
+  bottom: 1rem;    /* distancia desde el fondo del contenedor */
+  right: 1rem;      /* distancia desde el borde izquierdo */
+  margin: 0;       /* elimina márgenes que puedan afectar */
+}
+
+
+
+.imagen-tomada{
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente */
+  height: auto;           /* o el alto que quieras */
+  width: auto;             /* ancho completo */
+  background-color: white; /* opcional para ver el área */
+}
+.imagen-tomada img{
+  height: 300px;           /* o el alto que quieras */
+  width: auto;  
 }
