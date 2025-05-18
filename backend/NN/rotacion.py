@@ -6,8 +6,8 @@ import time
 
 def estimate_rotation(pos):
     img_path_2 = "temp.png"
-    img_path_1 = r"Data/malos/" + pos + ",0" + ".png"
-    start_time = time.perf_counter()  # Inicio
+    img_path_1 = os.path.join(os.path.dirname(os.getcwd()), "Data", "inv.db") + pos + ".png"
+    start_time = time.perf_counter()  
 
     # Cargar imágenes en escala de grises
     img1 = cv2.imread(img_path_1, cv2.IMREAD_GRAYSCALE)
