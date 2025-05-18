@@ -27,7 +27,9 @@ for i in images:
     embedding_new = model.get_image_features(**inputs_new)[0].detach().numpy()
     
     # Conectar a la base de datos y obtener embeddings guardados
-    conn = sqlite3.connect("embeddings.db")
+    db_path = os.path.join(os.path.dirname(os.getcwd()), "Data", "inventario.db")
+    conn = sqlite3.connect(db_path)
+
     c = conn.cursor()
     c.execute("SELECT label, vector FROM embeddings")
     results = c.fetchall()
