@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS Productos (
     created TEXT DEFAULT CURRENT_TIMESTAMP,
     anaquel TEXT NOT NULL,
     charola TEXT NOT NULL,
-    posicion TEXT NOT NULL
+    posicion TEXT NOT NULL,
+    rotacion TEXT
 );
 """)
 
