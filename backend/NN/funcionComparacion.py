@@ -5,14 +5,15 @@ import os
 from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
 
-def comparar_imagen(image, posicion):
+def comparar_imagen(path):
     # Cargar modelo y processor de CLIP
     model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
     processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
     
     # Obtener embedding de la imagen nueva
-    inputs = processor(images=image, return_tensors="pt")
-    new_embedding = model.get_image_features(**inputs)[0].detach().numpy()
+    image = Image.open(path)
+    image = processor(images=image, return_tensors="pt")
+    new_embedding = model.get_image_features(**image)[0].detach().numpy()
     
     # Ruta a la base de datos
     db_path = os.path.join(os.path.dirname(os.getcwd()), "Data", "inv.db")
@@ -58,11 +59,11 @@ def comparar_imagen(image, posicion):
     
         if ubicacion:
             anaquel, charola, posicion = ubicacion
-            print(f"📍 Ubicación:\n - Anaquel: {anaquel}\n - Charola: {charola}\n - Posición: {posicion}")
+            #print(f"📍 Ubicación:\n - Anaquel: {anaquel}\n - Charola: {charola}\n - Posición: {posicion}")
         else:
-            print("⚠️ No se encontró ubicación para este producto en la tabla Matrix.")
+            return False
     else:
-        print("❌ No se encontró ningún embedding similar.")
+        return False
     
     conn.close()
     return best_score, anaquel, charola, posicion 
