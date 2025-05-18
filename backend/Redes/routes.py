@@ -11,7 +11,8 @@ def add_detection():
     label = data.get("nombre")
     confidence = data.get("edad")
 
-    return 201
+    return jsonify(message="Todo bien"), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True)
