@@ -10,14 +10,10 @@ def image_info(pos):
 
     if (actual_pos != pos):
         return {"ans": "El producto no es el que se espera",
+                "angle": angulo,
                 "pos": actual_pos }
-    elif (orientation != 0):
-        return {"ans": "El producto no está en la orientación esperada",
-                "pos": orientations[orientation]}
-    elif (angulo > 45):
-        return {"ans": "El producto esta mal colocado", 
-                "angle": angulo}
     else:
-        return {"ans": "El producto está bien colocado"}
+        
+        return {"ans": "El producto está bien colocado", "angle": angulo,"pos": actual_pos }
     
     
