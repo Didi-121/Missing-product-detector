@@ -15,7 +15,7 @@ conn = sqlite3.connect(pathDB)
 cursor = conn.cursor()
 
 # Ruta a carpeta de imágenes
-path = os.path.join(os.path.dirname(os.getcwd()), "Data/carasfrontales")
+path = os.path.join(os.path.dirname(os.getcwd()), "Data/imagenes")
 print("Ruta de imágenes:", path)
 
 # Filtrar imágenes .png
