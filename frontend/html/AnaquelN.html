@@ -59,7 +59,7 @@
 
     <!-- Texto y botones derecha -->
     <section class="anaquel-info">
-      <div class="anaquel-title-bar">
+      <div class="anaquel-title-bar col-md-12">
         <span class="material-symbols-rounded" style="color: #4B5563;"> info</span>
         <p class="m-0 ms-3">Recuerda que la foto que subas debe cumplir con los criterios para su correcto cumplimiento
         </p>
@@ -67,7 +67,7 @@
       <section class="anaquel-bar">
         <canvas id="canvas" style="display:none;"></canvas>
         <img src="" id="captura" alt="" class="col-12 my-4" style="display:none; border-radius: 1rem;width: 80%;">
-        <div class="row col-md-12 m-0 pb-5" style="display: none; justify-content: space-evenly;">
+        <div class="row col-md-12 m-0 pb-5 decide" style="display: none; justify-content: space-evenly;">
           <button class="retake-btn col-md-4"><span class="material-symbols-rounded">autorenew</span> Volver a
             tomar</button>
           <button class="confirm-btn col-md-4"><span class="material-symbols-rounded">check</span>Confirmar</button>
@@ -200,8 +200,7 @@
     $('.anaquel-title-bar').addClass('my-0');
     $('.button-tomar-foto').hide();
     $('.boton_informativo').hide();
-    $('.retake-btn').show();
-    $('.confirm-btn').show();
+    $('.decide').fadeIn(500).css("display", "flex");
   });
 
   $('.retake-btn').click(function () {
@@ -238,15 +237,18 @@
 
       }, 500);
     }, 600);
+    const canvas = document.getElementById('canvas');
+    canvas.toBlob(blob => {
+      const url = URL.createObjectURL(blob);
+    });
   });
 
   $.ajax({
     url: 'http://127.0.0.1:5000/detect',
     type: 'POST',
-    data: {
-      nombre: "Brian",
-      edad: 10
-    },
+    data: JSON.stringify({ nombre: "Lol", edad: 21 }),
+    contentType: 'application/json',
+    dataType: 'json',
     success: function (response) {
       console.log("Respuesta del servidor:", response);
     },
