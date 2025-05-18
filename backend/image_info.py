@@ -1,7 +1,10 @@
+
 import json
 from NN.funcionComparacion import funcionComparacion
+
 from NN.rotacion import estimate_rotation
 from NN.chopper import chop_image
+
 
 def get_info(path, pos, shelf=0):
     error = False
@@ -50,5 +53,19 @@ def handle_request(json_data):
                 ans[str(a)] = info
             
     return ans  
-    
+
+def image_info(pos):
+    img = "temp.png"
+    best_score, anaquel, charola, posicion, orientation = comparar_imagen(img)
+    angulo = estimate_rotation(img, pos)
+    actual_pos = anaquel + "," +  charola + "," + posicion
+    orientations = {"1": "costado derecho", "2": "costado izquierdo", "3": "detrás", "4": "arriba", "5": "abajo"}
+
+    if (actual_pos != pos):
+        return {"ans": "El producto no es el que se espera",
+                "angle": angulo,
+                "pos": actual_pos }
+    else:
+        
+        return {"ans": "El producto está bien colocado", "angle": angulo,"pos": actual_pos }
     
