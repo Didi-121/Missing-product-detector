@@ -99,6 +99,7 @@ body {
   gap: 2rem;
   padding: 2rem;
   height: calc(100vh - 60px);
+  /* Ajusta según la altura del header */
   height: auto;
   box-sizing: border-box;
 }

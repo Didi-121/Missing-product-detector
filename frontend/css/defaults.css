@@ -22,6 +22,12 @@ body {
   height: 90lvh;
 }
 
+a {
+  color: white !important;
+  text-decoration: none !important;
+  display: flex;
+}
+
 body * {
   font-family: 'Nunito Regular';
 }

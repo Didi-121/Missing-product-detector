@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Anaquel N</title>
+      <link rel="stylesheet" href="../css/defaults.css">
+      <link rel="stylesheet" href="../css/anaquelReduced.css">
+      <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0..1,-25&icon_names=arrow_back_ios,arrow_forward_ios,arrow_warm_up,autorenew,check,close,error,help,info,inventory_2,person,photo_camera,published_with_changes,shelves,store" />
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+      <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+
+</head>
+
+<body>
+      <header class="col-md-12">
+            <a href="usuario.php" class="logo">
+                  <img class="col-md-1" src="../assets/images/Oxxo_Logo.svg.png" alt="">
+            </a>
+            <span class="material-symbols-rounded"> person </span>
+            <h2>
+                  User6783
+            </h2>
+            <span class="material-symbols-rounded"> store </span>
+            <h2>
+                  10XA00841
+            </h2>
+            <button id="notificationBtn" class="notification-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-bell-fill"
+                        viewBox="0 0 16 16">
+                        <path
+                              d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901" />
+                  </svg>
+            </button>
+      </header>
+
+
+
+      <main class="anaquel-main row m-0 col-md-12 d-flex" style="flex-direction: row;">
+            <!-- Imagen izquierda 
+    <section class="anaquel-image col-12 col-md-4">
+      <img src="../assets/images/anaquel1.png" alt="Anaquel 1" />
+    </section>-->
+
+            <!-- Texto y botones derecha -->
+            <section class="anaquel-info col-md-5">
+                  <section class="anaquel-bar">
+                        <canvas id="canvas" style="display:none;"></canvas>
+
+                        <button class="button-tomar-foto" onclick="abrirCamara()">
+                              <span class="material-symbols-rounded" style="color: #4B5563; font-size: 200px;">
+                                    photo_camera</span>
+                              <span class="right-content">Tomar fotografía</span>
+                        </button>
+                        <video id="viewer-video" autoplay style="display: none;border-radius: 1rem;"></video>
+                        <button class="solo-camera-icon mx-auto mt-1" style="display: none;"><span
+                                    class="material-symbols-rounded"
+                                    style="font-size: 4rem;">photo_camera</span></button>
+                        <button class="boton_informativo">
+                              <span class="material-symbols-rounded" style="color: white;"> help</span>
+                              <span class="right-content2">Criterios</span>
+                        </button>
+                  </section>
+            </section>
+            <div class="col-md-6 mx-auto">
+                  <div class="contenedor-tres-divs">
+                        <div class="anaquel-title-bar">
+                              <span class="material-symbols-rounded"> arrow_back_ios </span>
+                        </div>
+
+                        <div class="anaquel-title-bar">
+                              <span class="material-symbols-rounded"> shelves </span>
+                              <h3>Anaquel 1</h3>
+                        </div>
+
+                        <div class="anaquel-title-bar">
+                              <span class="material-symbols-rounded"> arrow_forward_ios </span>
+                        </div>
+                  </div>
+                  <div class="col-md-12 row m-0">
+                        <div class="col-md-6">
+                              <div class="anaquel-title-bar col-md-12 d-flex" style="flex-direction: column;">
+                                    <div><span class="material-symbols-rounded" style="color: #4B5563;"> info</span>
+                                          <p class="m-0 ms-3" style="font-size: 1rem;">Recuerda que la foto que subas
+                                                debe
+                                                cumplir con los criterios
+                                                para su
+                                                correcto cumplimiento </p>
+
+                                    </div>
+                                    <img src="" id="captura" alt="" class="col-12 my-4"
+                                          style="display:none; border-radius: 1rem;width: 80%;">
+                              </div>
+                        </div>
+                        <div class="col-md-6 mt-2 rounded p-3" style="background-color: white;">
+                              <p style="font-size: 1.5rem;">Escoge la posición a la que le tomaras foto en este anaquel
+                              </p>
+                              <div class="estanteria">
+                                    <div class="nivel" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr 0.7fr;">
+                                          <div class="cajon" id="0,4,1"> </div>
+                                          <div class="cajon" id="0,4,2"> </div>
+                                          <div class="cajon" id="0,4,3"> </div>
+                                          <div class="cajon" id="0,4,4"> </div>
+                                          <div class="cajon" id="0,4,5"> </div>
+                                          <div class="cajon" id="0,4,6"> </div>
+                                    </div>
+                                    <div class="nivel" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 2fr 3fr;">
+                                          <div class="cajon" id="0,3,1"> </div>
+                                          <div class="cajon" id="0,3,2"> </div>
+                                          <div class="cajon" id="0,3,3"> </div>
+                                          <div class="cajon" id="0,3,4"> </div>
+                                          <div class="cajon" id="0,3,5"> </div>
+                                          <div class="cajon" id="0,3,6"> </div>
+                                          <div class="cajon" id="0,3,7"> </div>
+                                          <div class="cajon" id="0,3,8"> </div>
+                                    </div>
+                                    <div class="nivel" style="grid-template-columns: 1fr 1fr 1fr 1fr 2fr 2fr;">
+                                          <div class="cajon" id="0,2,1"> </div>
+                                          <div class="cajon" id="0,2,2"> </div>
+                                          <div class="cajon" id="0,2,3"> </div>
+                                          <div class="cajon" id="0,2,4"> </div>
+                                          <div class="cajon" id="0,2,5"> </div>
+                                          <div class="cajon" id="0,2,6"> </div>
+                                    </div>
+                                    <div class="nivel" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 3fr;">
+                                          <div class="cajon" id="0,1,1"> </div>
+                                          <div class="cajon" id="0,1,2"> </div>
+                                          <div class="cajon" id="0,1,3"> </div>
+                                          <div class="cajon" id="0,1,4"> </div>
+                                          <div class="cajon" id="0,1,5"> </div>
+                                          <div class="cajon" id="0,1,6"> </div>
+                                          <div class="cajon" id="0,1,7"> </div>
+                                    </div>
+                              </div>
+
+                        </div>
+                  </div>
+            </div>
+
+      </main>
+      <div class="overlap">
+            <div class="card p-4 col-md-5 m-auto" style="max-height: 90lvh;">
+                  <div class="row m-0 pb-3" style="align-items: center;">
+                        <h1 class="col-11 me-auto">Tomar Fotografía</h1>
+                        <span class="material-symbols-rounded col-1 close"
+                              style="font-size: 3rem;cursor: pointer;color: rgb(255, 58, 58);">close</span>
+                  </div>
+                  <div id="role-select" class="row">
+                        <button class="btn-share col-md-5 py-2 mx-auto" onclick="startAsPhone()">Usar este dispositivo
+                              como cámara
+                              (Teléfono)</button>
+                        <button class="btn-recibe col-md-5 py-2 mx-auto" onclick="startAsViewer()">Ver desde otro
+                              dispositivo
+                              (PC)</button>
+                  </div>
+
+                  <div id="camera-section" style="display:none">
+                        <h2>Tu ID: <span id="phone-id"></span></h2>
+                        <video id="phone-video" autoplay muted></video>
+                  </div>
+
+                  <div id="viewer-section" style="display:none;flex-direction: column;">
+                        <h2 class="text-center" id="spam-title">Escanea este código QR en tu teléfono</h2>
+                        <div id="qrcode" class="m-auto"></div>
+                  </div>
+            </div>
+
+      </div>
+</body>
+<script src="../assets/frameworks/jquery/jquery-3.7.1.min"></script>
+
+<script>
+      function abrirCamara() {
+            $("body").css("overflow", "hidden");
+            $(".overlap").fadeIn(500).css("display", "flex");
+      }
+      $(".close").click(function () {
+            $("body").css("overflow", "auto");
+            $(".overlap").fadeOut(500);
+      });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+      let peer, myPeerId;
+
+      function startAsPhone() {
+            document.getElementById('role-select').style.display = 'none';
+            document.getElementById('camera-section').style.display = 'block';
+
+            peer = new Peer();
+
+            peer.on('open', id => {
+                  myPeerId = '8d8ee715-f9bb-4452-a8a0-e53d4234a8d0';
+                  console.log("ID del teléfono:", id);
+                  document.getElementById('phone-id').textContent = id;
+
+                  navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } }, audio: false }).then(stream => {
+                        document.getElementById('phone-video').srcObject = stream;
+
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const targetId = urlParams.get('target');
+
+                        if (targetId) {
+                              const call = peer.call(targetId, stream);
+                        }
+                  });
+            });
+      }
+
+      function startAsViewer() {
+            document.getElementById('role-select').style.display = 'none';
+            document.getElementById('viewer-section').style.display = 'flex';
+
+            peer = new Peer();
+
+            peer.on('open', id => {
+                  const joinURL = "https://a9c7-131-178-102-180.ngrok-free.app" + window.location.pathname + '?target=' + id;
+                  new QRCode(document.getElementById('qrcode'), joinURL);
+
+
+                  peer.on('call', call => {
+                        call.answer(null);
+                        call.on('stream', remoteStream => {
+                              document.getElementById('viewer-video').srcObject = remoteStream;
+                              $('.overlap').fadeOut(500).hide();
+                              $("body").css("overflow", "auto");
+                              $('#viewer-video').show();
+                              $('#viewer-video').addClass('mx-auto');
+                              $('.solo-camera-icon').show();
+                              $('#viewer-video').css('height', '100%');
+                              $('#viewer-video').css('width', 'fit-content');
+                              $('#spam-title').hide();
+                              $('#qrcode').hide();
+                              $('.button-tomar-foto').hide();
+
+                        });
+                  });
+            });
+      }
+
+      $('.solo-camera-icon').click(function () {
+            $('#viewer-video').get(0).pause();
+            const canvas = document.getElementById('canvas');
+            const video = document.getElementById('viewer-video');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            // Mostrar vista previa de la imagen
+            const dataURL = canvas.toDataURL("image/png");
+            const img = document.getElementById("captura");
+            img.src = dataURL;
+            img.style.display = "block";
+
+            // Ajustes visuales
+            $('.overlap').fadeOut(500);
+            $("body").css("overflow", "auto");
+            $('.anaquel-info').addClass('pt-0');
+            $('.anaquel-title-bar').addClass('my-0');
+            $('.button-tomar-foto').hide();
+            $('.boton_informativo').hide();
+            $('.decide').fadeIn(500).css("display", "flex");
+
+            // Obtener posición seleccionada
+            let position = $('.selected').attr('id');
+            console.log("Posición seleccionada:", position);
+
+            // Convertir imagen a base64 y enviarla por POST
+            canvas.toBlob(blob => {
+                  const reader = new FileReader();
+                  reader.onloadend = function () {
+                        const base64data = reader.result.split(',')[1]; // Eliminar encabezado data:image/png;base64,
+                        $.ajax({
+                              url: 'http://127.0.0.1:5000/detect',
+                              type: 'POST',
+                              contentType: 'application/json',
+                              data: JSON.stringify({ posicion: position, imagen: base64data }),
+                              success: function (response) {
+                                    console.log("Respuesta del servidor:", response);
+                              },
+                              error: function (xhr, status, error) {
+                                    console.error("Error en la solicitud AJAX:", error);
+                              }
+                        });
+                  };
+                  reader.readAsDataURL(blob);
+            });
+
+            $('#viewer-video').get(0).play();
+
+      });
+
+      $('.cajon').click(function () {
+            $('.cajon').removeClass('selected');
+            $(this).addClass('selected');
+
+            if ($(this).hasClass('selected')) {
+            } else {
+                  $(this).css('background-color', 'white');
+                  $(this).css('color', 'black');
+            }
+      });
+</script>
+
+</html>

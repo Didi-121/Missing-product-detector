@@ -1,10 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const anaqueles = [
-    { nombre: "Anaquel Botanas 1", imagen: "../assets/images/anaquel1.png", aviso: "1 día" },
-    { nombre: "Anaquel Limpieza 1", imagen: "../assets/images/anaquel2.png", aviso: "2 días" },
-    { nombre: "Anaquel 3", imagen: "../assets/images/anaquel1.png", aviso: "1 semana" },
-    { nombre: "Anaquel 4", imagen: "../assets/images/anaquel2.png", aviso: "4 semana" }
+    { nombre: "Anaquel Botanas 1", imagen: "../assets/images/anaquel1.png", aviso: "1 día", id: 1 },
+    { nombre: "Anaquel Limpieza 1", imagen: "../assets/images/anaquel2.png", aviso: "2 días" , id: 2 }
   ];
 
   const container = document.getElementById("shelf-container");
@@ -13,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     anaqueles.forEach((anaquel, i) => {
       const section = document.createElement("section");
       section.className = "shelf-card";
+      section.id = anaquel.id;
       section.innerHTML = `
         <h3>${anaquel.nombre}</h3>
         <img src="${anaquel.imagen}" alt="Anaquel ${i + 1}" class="imagenAnaquel" />

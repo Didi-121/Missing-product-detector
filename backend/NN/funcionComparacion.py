@@ -17,11 +17,11 @@ def comparar_imagen(path):
     
     # Ruta a la base de datos
     db_path = os.path.join(os.path.dirname(os.getcwd()), "Data", "inv.db")
-    conn = sqlite3.connect(db_path)
+    conn = sqlite3.connect("/Users/Brian/HackFemsa/Hack-femsa/backend/Data/inv.db")
     cursor = conn.cursor()
     
     # Recuperar todos los embeddings de la base de datos una sola vez
-    cursor.execute("SELECT id, vector FROM Productos")
+    cursor.execute("SELECT id, vector, rotacion FROM Productos")
     db_embeddings = cursor.fetchall()
     
     # Función para similitud coseno
@@ -36,7 +36,7 @@ def comparar_imagen(path):
     best_product_id = None
     best_score = -1
     
-    for product_id, vec_blob in db_embeddings:
+    for product_id, vec_blob, rot in db_embeddings:
         db_vector = np.frombuffer(vec_blob, dtype=np.float32)
     
         score = cosine_sim(new_embedding, db_vector)
@@ -44,6 +44,7 @@ def comparar_imagen(path):
         if score > best_score:
             best_score = score
             best_product_id = product_id
+            rotacion = rot
     
     # Mostrar resultado
     if best_product_id is not None:
@@ -66,5 +67,5 @@ def comparar_imagen(path):
         return False
     
     conn.close()
-    return best_score, anaquel, charola, posicion 
+    return best_score, anaquel, charola, posicion , rotacion
     

@@ -1,32 +1,42 @@
 @font-face {
-    font-family: 'Nunito Bold';
-    src: url(../assets/fonts/Nunito-Bold.ttf) format('truetype');
+  font-family: 'Nunito Bold';
+  src: url(../assets/fonts/Nunito-Bold.ttf) format('truetype');
 }
 
-body{
-    display: flex;
-    color: white;
-    font-family: 'Nunito Bold';
-    height: 100lvh;
-    --s: 200px; /* control the size */
-    --c1: #ffa11e;
-    --c2: #ec5938;
-    --c3: #cc4c2f;
-  
-    background: repeating-conic-gradient(
-          from 30deg,
-          #0000 0 120deg,
-          var(--c3) 0 180deg
-        )
-        calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
-      repeating-conic-gradient(
-        from 30deg,
-        var(--c1) 0 60deg,
-        var(--c2) 0 120deg,
-        var(--c3) 0 180deg
-      );
-    background-size: var(--s) calc(var(--s) * 0.577);
-    overflow-y: hidden;
+.notification {
+  position: fixed;
+  top: -10lvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 81, 81);
+  height: 10lvh;
+  width: 30lvw;
+  margin-left: 35lvw;
+  margin-right: 35lvw;
+  border-radius: 10px;
+}
+
+body {
+  display: flex;
+  color: white;
+  font-family: 'Nunito Bold';
+  height: 100lvh;
+  --s: 200px;
+  /* control the size */
+  --c1: #ffa11e;
+  --c2: #ec5938;
+  --c3: #cc4c2f;
+
+  background: repeating-conic-gradient(from 30deg,
+      #0000 0 120deg,
+      var(--c3) 0 180deg) calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+    repeating-conic-gradient(from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 180deg);
+  background-size: var(--s) calc(var(--s) * 0.577);
+  overflow-y: hidden;
 }
 
 .main-container {
@@ -35,15 +45,16 @@ body{
   align-items: center;
   justify-content: center;
   margin: auto;
-  background-color: #BB2C2C;
+  background-color: #bb2c2cdb;
   border-radius: 0.3rem;
   min-width: 60lvw;
   padding: 2rem;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 .oxxo-logo {
-  width: 7rem;
+  width: 10lvw;
   height: auto;
 }
 
@@ -62,23 +73,23 @@ body{
 }
 
 h1 {
-    color: #F8F8F8;
-    font-optical-sizing: auto;
-    font-size: xx-large;
+  color: #F8F8F8;
+  font-optical-sizing: auto;
+  font-size: xx-large;
 }
 
 h2 {
-    color: #F8F8F8;
-    font-optical-sizing: auto;
+  color: #F8F8F8;
+  font-optical-sizing: auto;
 }
 
-.login-btn{
-    width: 10rem;
-    height: 3rem;
-    background-color: #FFBF00;
-    border: none;
-    border-radius: 0.3rem;
-    font-size: large;
-    color: white;
-    margin: 3rem;
+.login-btn {
+  width: 20lvw;
+  height: 5lvh;
+  background-color: #FFBF00;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: xx-large;
+  color: white;
+  margin: 3rem;
 }
