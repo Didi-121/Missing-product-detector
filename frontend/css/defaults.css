@@ -2,12 +2,21 @@
     font-family: 'Nunito Regular';
     src: url(../assets/fonts/Nunito-Regular.ttf) format('truetype');
 }
+@font-face {
+    font-family: 'Nunito Bold';
+    src: url(../assets/fonts/Nunito-Bold.ttf) format('truetype');
+}
+
+* {
+  transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito Regular';
   background-color: #E9E9E9!important;
+  height: 90lvh;
 }
 
 body * {
