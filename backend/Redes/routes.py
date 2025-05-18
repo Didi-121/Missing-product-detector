@@ -1,22 +1,11 @@
 # app.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from supabase_utils import insert_detection, receive_data
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/")
-def index():
-    return "API con Flask + SDK de Supabase funcionando!"
-
-@app.route("/info", methods=["GET"])
-def data():
-    response = receive_data()
-    return jsonify(response.data), 201
-
-
-@app.route("/detections", methods=["POST"])
+@app.route("detect", methods=["POST"])
 def add_detection():
     data = request.json
     label = data.get("label")
