@@ -5,7 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route("detect", methods=["POST"])
+@app.route("/detect", methods=["POST"])
 def add_detection():
     data = request.json
     label = data.get("label")
