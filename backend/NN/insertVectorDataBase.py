@@ -53,9 +53,9 @@ for filename in images:
 
     # Insertar en tabla Embeddings
     cursor.execute("""
-        INSERT INTO Productos (name, codigoBarras, vector, anaquel, charola, posicion)
+        INSERT INTO Productos (name, codigoBarras, vector, created,anaquel, charola, posicion)
         VALUES (?, ?, ?, ?, ?, ?)
-    """, (result[1], result[2], vector_blob, result[4], result[5], result[6]))
+    """, (result[1], result[2], vector_blob, result[4],result[5], result[6], result[7]))
     print(f"✅ Procesado: {filename} → producto {product_id}, rotación: {rotacion}")
 
 
