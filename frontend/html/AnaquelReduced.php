@@ -18,10 +18,12 @@
 
 <body>
       <header class="col-md-12">
-            <img class="col-md-1" src="../assets/images/Oxxo_Logo.svg.png" alt="">
+            <a href="usuario.php" class="logo">
+                  <img class="col-md-1" src="../assets/images/Oxxo_Logo.svg.png" alt="">
+            </a>
             <span class="material-symbols-rounded"> person </span>
             <h2>
-                  Un random
+                  User6783
             </h2>
             <span class="material-symbols-rounded"> store </span>
             <h2>

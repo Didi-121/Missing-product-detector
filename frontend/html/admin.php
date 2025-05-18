@@ -18,7 +18,10 @@
 
 <body>
     <header>
-        <img src="../assets/images/Oxxo_Logo.svg.png" alt="">
+        <a href="admin.php" class="logo">
+            <img src="../assets/images/Oxxo_Logo.svg.png" alt="">
+        </a>
+
         <span class="material-symbols-rounded"> person </span>
         <h3 class="pt-3 pe-5">
             Pedro Paramo

@@ -10,6 +10,10 @@
 </head>
 
 <body>
+
+    <div class="notification">
+
+    </div>
     <div class="main-container">
         <img class="oxxo-logo" src="frontend/assets/images/Oxxo_Logo.svg.png" alt="">
         <h1 class="title">Inicio de Sesión</h1>

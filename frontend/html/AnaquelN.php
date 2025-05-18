@@ -1,3 +1,9 @@
+<?php
+
+$shelf_id = $_GET['shelf_id'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,14 +21,20 @@
   <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
 
 </head>
+<div class="id-master" id="<?php echo $shelf_id; ?>"></div>
 
 <body>
   <header class="col-md-12">
-    <img class="col-md-1" src="../assets/images/Oxxo_Logo.svg.png" alt="">
-    <span class="material-symbols-rounded"> person </span>
-    <h2>
-      Un random
-    </h2>
+    <a href="usuario.php" class="logo">
+      <img src="../assets/images/Oxxo_Logo.svg.png" alt="">
+    </a>
+
+    <a href="../../index.php">
+      <span class="material-symbols-rounded"> person </span>
+      <h2>
+        User8743
+      </h2>
+    </a>
     <span class="material-symbols-rounded"> store </span>
     <h2>
       10XA00841
@@ -36,29 +48,30 @@
     </button>
   </header>
 
-  <div class="contenedor-tres-divs">
-    <div class="anaquel-title-bar">
-      <span class="material-symbols-rounded"> arrow_back_ios </span>
-    </div>
 
-    <div class="anaquel-title-bar">
-      <span class="material-symbols-rounded"> shelves </span>
-      <h3>Anaquel 1</h3>
-    </div>
-
-    <div class="anaquel-title-bar">
-      <span class="material-symbols-rounded"> arrow_forward_ios </span>
-    </div>
-  </div>
 
   <main class="anaquel-main row m-0 col-md-12">
     <!-- Imagen izquierda -->
     <section class="anaquel-image col-12 col-md-4">
-      <img src="../assets/images/anaquel1.png" alt="Anaquel 1" />
+      <img src="../assets/images/anaquel<?php echo $shelf_id; ?>.png" alt="Anaquel 1" />
     </section>
 
     <!-- Texto y botones derecha -->
     <section class="anaquel-info col-md-7">
+      <div class="contenedor-tres-divs">
+        <div class="anaquel-title-bar go-back" style="cursor: pointer;">
+          <span class="material-symbols-rounded"> arrow_back_ios </span>
+        </div>
+
+        <div class="anaquel-title-bar">
+          <span class="material-symbols-rounded"> shelves </span>
+          <h3>Anaquel <?php echo $shelf_id; ?></h3>
+        </div>
+
+        <div class="anaquel-title-bar go-forward" style="cursor: pointer;">
+          <span class="material-symbols-rounded"> arrow_forward_ios </span>
+        </div>
+      </div>
       <div class="anaquel-title-bar col-md-12">
         <span class="material-symbols-rounded" style="color: #4B5563;"> info</span>
         <p class="m-0 ms-3">Recuerda que la foto que subas debe cumplir con los criterios para su correcto cumplimiento
@@ -254,7 +267,24 @@
       });
     });
   });
+  const idMaster = document.querySelector('.id-master').id;
+  if (idMaster - 1 <= 0) {
+    $('.go-back').css('display', 'none');
+  } else {
+    $('.go-back').click(function () {
+      const idMaster = document.querySelector('.id-master').id;
+      window.location.href = 'anaquelN.php?shelf_id=' + (parseInt(idMaster) - 1);
+    });
+  }
 
+  $('.go-forward').click(function () {
+    const idMaster = document.querySelector('.id-master').id;
+    window.location.href = 'anaquelN.php?shelf_id=' + (parseInt(idMaster) + 1);
+  });
+
+  if (idMaster == 2) {
+    $('.go-forward').css('display', 'none');
+  }
 
 </script>
 
