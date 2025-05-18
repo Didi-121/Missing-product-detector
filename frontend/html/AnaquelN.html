@@ -17,8 +17,8 @@
 </head>
 
 <body>
-  <header>
-    <img src="../assets/images/Oxxo_Logo.svg.png" alt="">
+  <header class="col-md-12">
+    <img class="col-md-1" src="../assets/images/Oxxo_Logo.svg.png" alt="">
     <span class="material-symbols-rounded"> person </span>
     <h2>
       Un random
@@ -51,14 +51,14 @@
     </div>
   </div>
 
-  <main class="anaquel-main">
+  <main class="anaquel-main row m-0 col-md-12">
     <!-- Imagen izquierda -->
-    <section class="anaquel-image">
+    <section class="anaquel-image col-12 col-md-4">
       <img src="../assets/images/anaquel1.png" alt="Anaquel 1" />
     </section>
 
     <!-- Texto y botones derecha -->
-    <section class="anaquel-info">
+    <section class="anaquel-info col-md-7">
       <div class="anaquel-title-bar col-md-12">
         <span class="material-symbols-rounded" style="color: #4B5563;"> info</span>
         <p class="m-0 ms-3">Recuerda que la foto que subas debe cumplir con los criterios para su correcto cumplimiento
@@ -239,23 +239,23 @@
     }, 600);
     const canvas = document.getElementById('canvas');
     canvas.toBlob(blob => {
-      const url = URL.createObjectURL(blob);
+      $.ajax({
+        url: 'http://127.0.0.1:5000/detect',
+        type: 'POST',
+        data: JSON.stringify({ nombre: "1,2,3,4", imagen: blob }),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function (response) {
+          console.log("Respuesta del servidor:", response);
+        },
+        error: function (xhr, status, error) {
+          console.error("Error en la solicitud AJAX:", error);
+        }
+      });
     });
   });
 
-  $.ajax({
-    url: 'http://127.0.0.1:5000/detect',
-    type: 'POST',
-    data: JSON.stringify({ nombre: "Lol", edad: 21 }),
-    contentType: 'application/json',
-    dataType: 'json',
-    success: function (response) {
-      console.log("Respuesta del servidor:", response);
-    },
-    error: function (xhr, status, error) {
-      console.error("Error en la solicitud AJAX:", error);
-    }
-  });
+
 </script>
 
 </html>

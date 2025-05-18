@@ -1,21 +1,24 @@
 @font-face {
-    font-family: 'Nunito Regular';
-    src: url(../assets/fonts/Nunito-Regular.ttf) format('truetype');
+  font-family: 'Nunito Regular';
+  src: url(../assets/fonts/Nunito-Regular.ttf) format('truetype');
 }
+
 @font-face {
-    font-family: 'Nunito Bold';
-    src: url(../assets/fonts/Nunito-Bold.ttf) format('truetype');
+  font-family: 'Nunito Bold';
+  src: url(../assets/fonts/Nunito-Bold.ttf) format('truetype');
 }
 
 * {
   transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Nunito Regular';
-  background-color: #E9E9E9!important;
+  background-color: #E9E9E9 !important;
   height: 90lvh;
 }
 
@@ -26,18 +29,23 @@ body * {
 .text-left {
   text-align: left;
 }
+
 .text-right {
   text-align: right;
 }
+
 .text-center {
   text-align: center;
 }
+
 .text-justify {
   text-align: justify;
 }
+
 .text-start {
   text-align: start;
 }
+
 .text-end {
   text-align: end;
 }
@@ -50,24 +58,24 @@ header {
   align-items: center;
 }
 
-header img{
+header img {
   width: 7rem;
   height: auto;
   object-fit: contain;
   margin-right: 1rem;
 }
 
-header span{
-  font-size: 3rem!important;
+header span {
+  font-size: 3rem !important;
   margin-left: 1rem;
   cursor: pointer;
 }
 
-header h2{
-    font-family: 'Nunito Regular';
-    font-weight: lighter;
-    align-items: center;
-    display: flex;
-    padding-top: 0.5rem;
-    cursor: pointer;
+header h2 {
+  font-family: 'Nunito Regular';
+  font-weight: lighter;
+  align-items: center;
+  display: flex;
+  padding-top: 0.5rem;
+  cursor: pointer;
 }

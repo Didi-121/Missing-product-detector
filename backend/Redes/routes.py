@@ -9,7 +9,7 @@ CORS(app)
 def add_detection():
     data = request.json
     label = data.get("nombre")
-    confidence = data.get("edad")
+    confidence = data.get("imagen")
 
     return jsonify(message="Todo bien"), 200
 
