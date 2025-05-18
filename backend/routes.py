@@ -1,7 +1,7 @@
 # app.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from backend.image_info import image_info
+from image_info import image_info
 from PIL import Image
 import  base64
 import io

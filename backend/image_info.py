@@ -1,9 +1,9 @@
-from NN.funcionComparacion import funcionComparacion
+from NN.funcionComparacion import comparar_imagen 
 from NN.rotacion import estimate_rotation
 
 def image_info(pos):
     img = "temp.png"
-    best_score, anaquel, charola, posicion, orientation = funcionComparacion(img)
+    best_score, anaquel, charola, posicion, orientation = comparar_imagen(img)
     angulo = estimate_rotation(img, pos)
     actual_pos = anaquel + "," +  charola + "," + posicion
     orientations = {"1": "costado derecho", "2": "costado izquierdo", "3": "detrás", "4": "arriba", "5": "abajo"}
