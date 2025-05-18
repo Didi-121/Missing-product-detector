@@ -302,10 +302,7 @@ display: flex;          /* convierte al botón en flex container */
     flex: 0 0 100%;
 }
 
-.notifications-container{
-  
-    
-}
+
 
 .notification{
     background-color: #ffffff;
